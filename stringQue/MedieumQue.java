@@ -17,13 +17,28 @@ class MedieumQue {
         // String[] strArray = str.split(" ");
         // String revStr = "";
         // for (int i = strArray.length - 1; i >= 0; i--) {
-        //     revStr += strArray[i];
+        // revStr += strArray[i];
+        // if (i > 0) {
+        // revStr += " ";
+        // }
+        // }
+        // System.out.println(revStr);
+
+        // // 3. Reverse words and rverse character of  word in  string 
+        // String str = "Hello How are you";
+        // String[] strArray = str.split(" ");
+        // String revStr = "";
+        // for (int i = strArray.length - 1; i >= 0; i--) {
+        //     String word = strArray[i];
+        //     String reverseWord = "";
+        //     for (int j = word.length() - 1; j >= 0; j--) {
+        //         reverseWord += word.charAt(j);
+        //     }
+        //     revStr += reverseWord;
         //     if (i > 0) {
         //         revStr += " ";
         //     }
         // }
         // System.out.println(revStr);
-
-        // 3.
     }
 }
