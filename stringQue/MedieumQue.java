@@ -56,28 +56,74 @@ class MedieumQue {
         // }
         // System.out.println(sum);
 
-        // 5. Longest Palindromic Substring
-        String s = "cbbd";
-        int n = s.length();
-        int max = Integer.MIN_VALUE;
-        int minIndex = 0;
-        int maxIndex = 0;
+        // //5. Longest Palindromic Substring
+        // String s = "cbbd";
+        // int n = s.length();
+        // int max = Integer.MIN_VALUE;
+        // int minIndex = 0;
+        // int maxIndex = 0;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                String subStr = s.substring(i, j);
-                
-                boolean bool = isPallindromic(subStr);
-                if (bool) {
-                    if (subStr.length() > max) {
-                        max = subStr.length();
-                        minIndex = i;
-                        maxIndex = j;
-                    }
-                }
-            }
-        }
-        System.out.println(s.substring(minIndex, maxIndex));
+        // for (int i = 0; i < n; i++) {
+        // for (int j = i + 1; j < n; j++) {
+        // String subStr = s.substring(i, j);
+
+        // boolean bool = isPallindromic(subStr);
+        // if (bool) {
+        // if (subStr.length() > max) {
+        // max = subStr.length();
+        // minIndex = i;
+        // maxIndex = j;
+        // }
+        // }
+        // }
+        // }
+        // System.out.println(s.substring(minIndex, maxIndex));
+
+        // // 6.Atoi
+        // String str = " -42";
+        // int len = str.length();
+        // int i = 0;
+        // int sign = 1;
+        // int result = 0;
+        // while (i < len && str.charAt(i) == ' ') {
+        // i++;
+        // }
+
+        // if (i < len && (str.charAt(i) == '+' || str.charAt(i) == '-')) {
+        // sign = str.charAt(i) == '-' ? -1 : +1;
+        // i++;
+        // }
+
+        // while (i < len && Character.isDigit(str.charAt(i))) {
+        // int digit = str.charAt(i) - '0';
+
+        // if (result > (Integer.MAX_VALUE - result) / 10) {
+        // if (sign == 1) {
+        // System.out.println(Integer.MAX_VALUE);
+        // } else {
+        // System.out.println(Integer.MIN_VALUE);
+        // }
+        // break;
+        // }
+
+        // result = result * 10 + digit;
+        // i++;
+        // }
+        // System.out.println(sign * result);
+
+        // // 7.Maximum Nesting Depth of Paranthesis
+        // String str = "()(())((()()))";
+        // int cnt = 0;
+        // int nested = 0;
+        // for (int i = 0; i < str.length(); i++) {
+        //     if (str.charAt(i) == '(') {
+        //         cnt++;
+        //     } else if (str.charAt(i) == ')') {
+        //         cnt--;
+        //     }
+        //     nested = Math.max(nested, cnt);
+        // }
+        // System.out.println(nested);
     }
 
     // Here write start calling functions
@@ -98,17 +144,17 @@ class MedieumQue {
     // return maxFreq - minFreg;
     // }
 
-    // 5.
-    public static boolean isPallindromic(String subStr) {
-        int left = 0;
-        int right = subStr.length() - 1;
-        while (left <= right) {
-            if (subStr.charAt(left) != subStr.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true;
-    }
+    // // 5.
+    // public static boolean isPallindromic(String subStr) {
+    // int left = 0;
+    // int right = subStr.length() - 1;
+    // while (left <= right) {
+    // if (subStr.charAt(left) != subStr.charAt(right)) {
+    // return false;
+    // }
+    // left++;
+    // right--;
+    // }
+    // return true;
+    // }
 }
