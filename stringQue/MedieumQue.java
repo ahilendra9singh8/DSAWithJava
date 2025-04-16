@@ -1,6 +1,9 @@
 package stringQue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 class MedieumQue {
@@ -116,14 +119,86 @@ class MedieumQue {
         // int cnt = 0;
         // int nested = 0;
         // for (int i = 0; i < str.length(); i++) {
-        //     if (str.charAt(i) == '(') {
-        //         cnt++;
-        //     } else if (str.charAt(i) == ')') {
-        //         cnt--;
-        //     }
-        //     nested = Math.max(nested, cnt);
+        // if (str.charAt(i) == '(') {
+        // cnt++;
+        // } else if (str.charAt(i) == ')') {
+        // cnt--;
+        // }
+        // nested = Math.max(nested, cnt);
         // }
         // System.out.println(nested);
+
+        // // 8.Sort Characters By Frequency
+        // String s = "Aabb";
+        // String result = "";
+        // Map<Character, Integer> freqMap = new HashMap<>();
+        // for (int i = 0; i < s.length(); i++) {
+        // freqMap.put(s.charAt(i), freqMap.getOrDefault(s.charAt(i), 0) + 1);
+        // }
+        // List<Map.Entry<Character, Integer>> list = new
+        // ArrayList<>(freqMap.entrySet());
+
+        // list.sort((a, b) -> b.getValue().compareTo(a.getValue()));
+
+        // for (Map.Entry<Character, Integer> map : list) {
+        // // System.out.println(map.getKey() + " : " + map.getValue());
+        // for (int i = 0; i < map.getValue(); i++) {
+        // result += map.getKey();
+        // }
+        // }
+        // System.out.println(result);
+
+        // // 9.Roman Number to Integer
+        // String s = "LVIII";
+        // int result = 0;
+        // Map<Character, Integer> map = new HashMap<>();
+        // map.put('I', 1);
+        // map.put('V', 5);
+        // map.put('X', 10);
+        // map.put('L', 50);
+        // map.put('C', 100);
+        // map.put('D', 500);
+        // map.put('M', 1000);
+
+        // for (int i = 0; i < s.length() - 1; i++) {
+        // int value = map.get(s.charAt(i));
+        // int nextValue = map.get(s.charAt(i + 1));
+        // if (value < nextValue) {
+        // result -= value;
+        // } else {
+        // result += value;
+        // }
+        // }
+        // result += map.get(s.charAt(s.length() - 1));
+        // System.out.println(result);
+
+        // // 10.Integer to Roman Number
+        // int Num = 2024;
+        // Map<Integer, String> map = new LinkedHashMap<>();
+        // map.put(1000, "M");
+        // map.put(900, "CM");
+        // map.put(500, "D");
+        // map.put(400, "CD");
+        // map.put(100, "C");
+        // map.put(90, "XC");
+        // map.put(50, "L");
+        // map.put(40, "XL");
+        // map.put(10, "X");
+        // map.put(9, "IX");
+        // map.put(5, "V");
+        // map.put(4, "IV");
+        // map.put(1, "I");
+
+        // StringBuilder sb = new StringBuilder();
+
+        // for (Map.Entry<Integer, String> entry : map.entrySet()) {
+        //     while (Num > entry.getKey()) {
+        //         sb.append(entry.getValue());
+        //         Num -= entry.getKey();
+        //     }
+        // }
+        // System.out.println(sb);
+        
     }
 
     // Here write start calling functions
