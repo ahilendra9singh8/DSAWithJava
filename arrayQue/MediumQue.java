@@ -1,7 +1,9 @@
 package arrayQue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MediumQue {
@@ -74,12 +76,12 @@ public class MediumQue {
         // int n = intArray.length;
         // Map<Integer, Integer> map = new HashMap<>();
         // for (int i = 0; i < n; i++) {
-        //     map.put(intArray[i], map.getOrDefault(intArray[i], 0) + 1);
+        // map.put(intArray[i], map.getOrDefault(intArray[i], 0) + 1);
         // }
         // for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-        //     if (entry.getValue() > n / 2) {
-        //         System.out.println(entry.getKey());
-        //     }
+        // if (entry.getValue() > n / 2) {
+        // System.out.println(entry.getKey());
+        // }
         // }
 
         // // 4.Kadane algorithm - maximum subarray sum
@@ -130,7 +132,50 @@ public class MediumQue {
         // }
         // System.out.println(profit);
 
-        // 7. Rearrange Array Elements by Sign
+        // // 7. Rearrange Array Elements by Sign
+        // // 7.1- Broute Force approach
+        // int[] arr = { 1, 2, -4, -5 };
+        // int n = arr.length;
+        // List<Integer> pos = new ArrayList<>();
+        // List<Integer> neg = new ArrayList<>();
+        // for (int i = 0; i < n; i++) {
+        // if (arr[i] > 0) {
+        // pos.add(arr[i]);
+        // } else {
+        // neg.add(arr[i]);
+        // }
+        // }
 
+        // for (int i = 0; i < n / 2; i++) {
+        // arr[i * 2] = pos.get(i);
+        // arr[i * 2 + 1] = neg.get(i);
+        // }
+
+        // for (int val : arr) {
+        // System.out.println(val);
+        // }
+
+        // // 7.2-Better Approach
+        // int[] arr = { 1, 2, -4, -5 };
+        // int n = arr.length;
+        // int[] resultArr = new int[n];
+        // int posindex = 0;
+        // int negindex = 1;
+
+        // for (int i = 0; i < n; i++) {
+        //     if (arr[i] > 0) {
+        //         resultArr[posindex] = arr[i];
+        //         posindex += 2;
+        //     } else {
+        //         resultArr[negindex] = arr[i];
+        //         negindex += 2;
+        //     }
+        // }
+
+        // for (int val : resultArr) {
+        //     System.out.println(val);
+        // }
+
+        // 8.Next Permutation
     }
 }
