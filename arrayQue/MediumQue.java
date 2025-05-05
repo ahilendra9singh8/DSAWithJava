@@ -163,19 +163,192 @@ public class MediumQue {
         // int negindex = 1;
 
         // for (int i = 0; i < n; i++) {
-        //     if (arr[i] > 0) {
-        //         resultArr[posindex] = arr[i];
-        //         posindex += 2;
-        //     } else {
-        //         resultArr[negindex] = arr[i];
-        //         negindex += 2;
-        //     }
+        // if (arr[i] > 0) {
+        // resultArr[posindex] = arr[i];
+        // posindex += 2;
+        // } else {
+        // resultArr[negindex] = arr[i];
+        // negindex += 2;
+        // }
         // }
 
         // for (int val : resultArr) {
-        //     System.out.println(val);
+        // System.out.println(val);
         // }
 
         // 8.Next Permutation
+
+        // 9. Leaders in an Array
+        // // 9.1: Broute Force Approach
+        // int[] arr = { 4, 7, 1, 0 };
+        // int n = arr.length;
+        // for (int i = 0; i < n; i++) {
+        // boolean isLeader = true;
+        // for (int j = i + 1; j < n; j++) {
+        // if (arr[i] < arr[j]) {
+        // isLeader = false;
+        // break;
+        // }
+        // }
+        // if (isLeader) {
+        // System.out.println(arr[i]);
+        // }
+        // }
+
+        // // 9.2: Optimal Approach
+        // int[] arr = { 4, 7, 1, 0 };
+        // int n = arr.length;
+        // int max = arr[n - 1];
+        // List<Integer> list = new ArrayList<>();
+        // list.add(max);
+        // for (int i = n - 2; i >= 0; i--) {
+        // if (arr[i] > max) {
+        // list.add(arr[i]);
+        // max = arr[i];
+        // }
+        // }
+
+        // for (int val : list) {
+        // System.out.println(val);
+        // }
+
+        // // Matrix
+        // int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 } };
+        // int row = matrix.length;
+        // int column = matrix[0].length;
+        // for(int i=0; i< row; i++){
+        // for(int j=0; j<column; j++){
+        // System.out.println(matrix[i][j]);
+        // }
+        // }
+
+        // 10. Set Matrix Zero
+        // // 10.1 : Broute Force Approach
+        // int[][] matrix = { { 1, 1, 1 }, { 1, 0, 1 }, { 1, 1, 1 } };
+        // int rows = matrix.length;
+        // int columns = matrix[0].length;
+        // for (int i = 0; i < rows; i++) {
+        // for (int j = 0; j < columns; j++) {
+        // if (matrix[i][j] == 0) {
+        // // setrows is -1
+        // matrix = markRows(matrix, i);
+        // // set columns is -1
+        // matrix = markColumns(matrix, j);
+        // }
+        // }
+        // }
+
+        // // Now set 0 where found -1
+        // for (int i = 0; i < rows; i++) {
+        // for (int j = 0; j < columns; j++) {
+        // if (matrix[i][j] == -1) {
+        // matrix[i][j] = 0;
+        // }
+        // }
+        // }
+
+        // for (int i = 0; i < rows; i++) {
+        // for (int j = 0; j < columns; j++) {
+        // System.out.println(matrix[i][j]);
+        // }
+        // }
+
+        // 11. Rotate Image by 90 degree
+        // 11.1: Broute Force approach
+        // int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+        // int n = matrix.length;
+        // int[][] ans = new int[n][n];
+        // for (int i = 0; i < n; i++) {
+        // for (int j = 0; j < n; j++) {
+        // ans[j][n - 1 - i] = matrix[i][j];
+        // }
+        // }
+
+        // for (int i = 0; i < n; i++) {
+        // for (int j = 0; j < n; j++) {
+        // System.out.println(ans[i][j]);
+        // }
+        // }
+
+        // // 12. Print the matrix in spiral manner
+
+        // int[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13,
+        // 14, 15, 16 } };
+        // List<Integer> ans = new ArrayList<>();
+        // int top = 0;
+        // int bottom = matrix.length - 1;
+        // int left = 0;
+        // int right = matrix[0].length - 1;
+
+        // while (left <= right && top <= bottom) {
+
+        // for (int i = left; i <= right; i++) {
+        // ans.add(matrix[top][i]);
+        // }
+        // top++;
+        // for (int i = top; i <= bottom; i++) {
+        // ans.add(matrix[i][right]);
+        // }
+        // right--;
+
+        // if (top <= bottom) {
+        // for (int i = right; i >= left; i--) {
+        // ans.add(matrix[bottom][i]);
+        // }
+        // bottom--;
+        // }
+
+        // if (left <= right) {
+        // for (int i = bottom; i >= top; i--) {
+        // ans.add(matrix[i][left]);
+        // }
+        // left++;
+        // }
+
+        // }
+
+        // for (int val : ans) {
+        // System.out.print(val + " ");
+        // }
+
+        // // 13. Print the matrix in spiral manner
+        // int[] arr = { 3, 1, 2, 4 }; // {1,-1,0} ,k=0, countSubArray =3
+        // int k = 6;
+        // int countSubArray = 0;
+
+        // for (int i = 0; i < arr.length; i++) {
+        //     int sum = 0;
+        //     for (int j = i; j < arr.length; j++) {
+        //         sum += arr[j];
+        //         if (sum == k) {
+        //             countSubArray++;
+        //         }
+        //     }
+        // }
+
+        // System.out.print(countSubArray);
+
     }
+
+    // private static int[][] markRows(int[][] matrix, int i) {
+    // for (int k = 0; k < matrix[0].length; k++) {
+    // if (matrix[i][k] != 0) {
+    // matrix[i][k] = -1;
+    // }
+
+    // }
+
+    // return matrix;
+    // }
+
+    // private static int[][] markColumns(int[][] matrix, int j) {
+    // for (int k = 0; k < matrix.length; k++) {
+    // if (matrix[k][j] != 0) {
+    // matrix[k][j] = -1;
+    // }
+
+    // }
+    // return matrix;
+    // }
+
 }
