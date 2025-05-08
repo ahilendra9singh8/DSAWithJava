@@ -212,6 +212,42 @@ public class MediumQue {
         // System.out.println(val);
         // }
 
+        // // 10.Longest Consecutive Sequence in an Array
+        // // 10.1: Broute Force Approach
+        // int[] arr = { 100, 200, 1, 3, 2, 4 };
+        // int longest = 1;
+        // for (int i = 0; i < arr.length; i++) {
+        // int ele = arr[i];
+        // int cnt = 1;
+        // while (ls(arr, ele + 1) == true) {
+        // ele += 1;
+        // cnt += 1;
+        // }
+        // longest = Math.max(longest, cnt);
+        // }
+        // System.out.println(longest);
+
+        // // 10.2 : Better Approach
+        // int[] arr = { 2, 2, 2, 3, 3, 4, 100, 100, 1, 1, 1, 101, 101, 102 };
+        // Arrays.sort(arr);
+        // int lastSmaller = Integer.MIN_VALUE;
+        // int longest = 1;
+        // int cnt = 0;
+        // for (int i = 0; i < arr.length; i++) {
+        // if (arr[i] - 1 == lastSmaller) {
+        // lastSmaller = arr[i];
+        // cnt += 1;
+        // } else if (arr[i] != lastSmaller) {
+        // cnt = 1;
+        // lastSmaller = arr[i];
+        // }
+        // longest = Math.max(longest, cnt);
+        // }
+
+        // System.out.println(longest);
+
+        // 10.3 : Optimal Approach
+
         // // Matrix
         // int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 } };
         // int row = matrix.length;
@@ -222,7 +258,7 @@ public class MediumQue {
         // }
         // }
 
-        // 10. Set Matrix Zero
+        // 11. Set Matrix Zero
         // // 10.1 : Broute Force Approach
         // int[][] matrix = { { 1, 1, 1 }, { 1, 0, 1 }, { 1, 1, 1 } };
         // int rows = matrix.length;
@@ -253,8 +289,8 @@ public class MediumQue {
         // }
         // }
 
-        // 11. Rotate Image by 90 degree
-        // 11.1: Broute Force approach
+        // 12. Rotate Image by 90 degree
+        // 12.1: Broute Force approach
         // int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         // int n = matrix.length;
         // int[][] ans = new int[n][n];
@@ -270,7 +306,7 @@ public class MediumQue {
         // }
         // }
 
-        // // 12. Print the matrix in spiral manner
+        // // 13. Print the matrix in spiral manner
 
         // int[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13,
         // 14, 15, 16 } };
@@ -311,24 +347,33 @@ public class MediumQue {
         // System.out.print(val + " ");
         // }
 
-        // // 13. Print the matrix in spiral manner
+        // // 14. Count subarrays with given sum
         // int[] arr = { 3, 1, 2, 4 }; // {1,-1,0} ,k=0, countSubArray =3
         // int k = 6;
         // int countSubArray = 0;
 
         // for (int i = 0; i < arr.length; i++) {
-        //     int sum = 0;
-        //     for (int j = i; j < arr.length; j++) {
-        //         sum += arr[j];
-        //         if (sum == k) {
-        //             countSubArray++;
-        //         }
-        //     }
+        // int sum = 0;
+        // for (int j = i; j < arr.length; j++) {
+        // sum += arr[j];
+        // if (sum == k) {
+        // countSubArray++;
+        // }
+        // }
         // }
 
         // System.out.print(countSubArray);
 
     }
+
+    // private static boolean ls(int[] arr, int ele) {
+    // for (int i = 0; i < arr.length; i++) {
+    // if (arr[i] == ele) {
+    // return true;
+    // }
+    // }
+    // return false;
+    // }
 
     // private static int[][] markRows(int[][] matrix, int i) {
     // for (int k = 0; k < matrix[0].length; k++) {
