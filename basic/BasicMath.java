@@ -15,14 +15,20 @@ public class BasicMath {
         // System.out.println(cnt);
 
         // // 2.Reverse Digits of A Number
-        // int n = 12345;
-        // int result = 0;
-        // while (n > 0) {
-        // int rem = n % 10;
-        // result = result * 10 + rem;
-        // n = n / 10;
+        // int x = 12345;
+        // int reverse = 0;
+        // while (x != 0) {
+        // int lastdigit = x % 10;
+        // // Overflow check
+        // if (reverse > Integer.MAX_VALUE / 10 ||
+        // (reverse == Integer.MAX_VALUE / 10 && lastdigit > 7)) return 0;
+        // if (reverse < Integer.MIN_VALUE / 10 ||
+        // (reverse == Integer.MIN_VALUE / 10 && lastdigit < -8)) return 0;
+
+        // reverse = (reverse * 10) + lastdigit;
+        // x = x / 10;
         // }
-        // System.out.println(result);
+        // System.out.println(reverse);
 
         // // 3.Palindrome or Not
         // int n = 4554;
@@ -98,10 +104,10 @@ public class BasicMath {
         // int n2 = 5;
         // int lcm = Math.max(n1, n2);
         // while (true) {
-        //     if (lcm % n1 == 0 && lcm % n2 == 0) {
-        //         break;
-        //     }
-        //     lcm++;
+        // if (lcm % n1 == 0 && lcm % n2 == 0) {
+        // break;
+        // }
+        // lcm++;
         // }
         // System.out.println(lcm);
     }

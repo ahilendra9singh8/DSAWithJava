@@ -9,6 +9,7 @@ import java.util.Map;
 public class MediumQue {
     public static void main(String[] args) {
         // // 1.Two sum problem
+        // 1.1 Broute force approach
         // int[] arr = { 2, 11, 15, 7 };
         // int n = 9;
         // for (int i = 0; i < arr.length; i++) {
@@ -18,6 +19,26 @@ public class MediumQue {
         // break;
         // }
         // }
+        // }
+
+        // // 1.2 Better approach
+        // int[] nums = { 2, 11, 15, 7 };
+        // int target = 9;
+        // HashMap<Integer, Integer> mpp = new HashMap<>();
+        // int[] out = new int[] { -1, -1 };
+        // int n = nums.length;
+        // for (int i = 0; i < n; i++) {
+        // int num = nums[i];
+        // int needed = target - num;
+        // if (mpp.containsKey(needed)) {
+        // out[0] = mpp.get(needed);
+        // out[1] = i;
+        // break;
+        // }
+        // mpp.put(num, i);
+        // }
+        // for (int val : nums) {
+        // System.out.println(val);
         // }
 
         // 2. Sort an array of 0s, 1s,2s
@@ -119,6 +140,7 @@ public class MediumQue {
         // }
 
         // // 6. Stock Buy and Sell
+        // 6.1 Broute Force
         // int[] arr = { 7, 1, 5, 3, 6, 4 };
         // int profit = 0;
         // int n = arr.length;
@@ -129,6 +151,17 @@ public class MediumQue {
         // profit = Math.max(val, profit);
         // }
         // }
+        // }
+        // System.out.println(profit);
+
+        // // 6.2 Optimal
+        // int[] prices = { 7, 1, 5, 3, 6, 4 };
+        // int n = prices.length;
+        // int minPrice = Integer.MAX_VALUE;
+        // int profit = 0;
+        // for(int i=0; i<n; i++){
+        // minPrice = Math.min(minPrice,prices[i]);
+        // profit = Math.max(profit,prices[i]-minPrice);
         // }
         // System.out.println(profit);
 
@@ -306,8 +339,44 @@ public class MediumQue {
         // }
         // }
 
-        // // 13. Print the matrix in spiral manner
+        // // 12.2 Better Approach
+        // int[][] matrix = {
+        //         { 1, 2, 3 },
+        //         { 4, 5, 6 },
+        //         { 7, 8, 9 }
+        // };
 
+        // int n = matrix.length;
+        // // Transpose the matrix.
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = i + 1; j < n; j++) {
+        //         int temp = matrix[i][j];
+        //         matrix[i][j] = matrix[j][i];
+        //         matrix[j][i] = temp;
+        //     }
+        // }
+
+        // // Reverse each row of the matrix.
+        // for (int i = 0; i < n; i++) {
+        //     int start = 0;
+        //     int end = n - 1;
+        //     while (start < end) {
+        //         int temp = matrix[i][start];
+        //         matrix[i][start] = matrix[i][end];
+        //         matrix[i][end] = temp;
+        //         start++;
+        //         end--;
+        //     }
+        // }
+
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = 0; j < n; j++) {
+        //         System.out.print(matrix[i][j] + " ");
+        //     }
+        //     System.out.println();
+        // }
+
+        // // 13. Print the matrix in spiral manner
         // int[][] matrix = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13,
         // 14, 15, 16 } };
         // List<Integer> ans = new ArrayList<>();

@@ -112,11 +112,11 @@ public class EasyQue {
         // }
         // }
 
-        // // 5.2: Better Approch
+        // 5.2: Better Approch
         // int[] intArray = { 1, 2, 4, 5 };
         // int n = 5;
         // int len = intArray.length;
-        // int tottalsum = n * ((n + 1) / 2);
+        // int tottalsum = (n * (n + 1)) / 2;
         // int sum = 0;
         // for (int i = 0; i < len; i++) {
         // sum += intArray[i];
@@ -220,6 +220,7 @@ public class EasyQue {
         // System.out.println(secondlargest);
 
         // // 13.Left rotate array by d place
+        // 13.1
         // int[] arr = { 1, 2, 3, 4, 5 };
         // int d = 2;
         // for (int i = 0; i < d; i++) {
@@ -233,7 +234,18 @@ public class EasyQue {
         // System.out.println(val);
         // }
 
+        // 13.2 ==> Optimized
+        // int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
+        // int k = 3;
+        // int n = nums.length;
+        // k %= n;
+
+        // reverse(nums, 0, n - 1); // Step 1: Reverse whole array
+        // reverse(nums, n - k, n - 1); // Step 2: Reverse last k
+        // reverse(nums, 0, n - k - 1); // Step 3: Reverse first n-k
+
         // // 14.right rotate array by d place
+        // 14.1
         // int[] arr = { 1, 2, 3, 4, 5 };
         // int d = 2;
         // for (int i = 0; i < d; i++) {
@@ -246,5 +258,66 @@ public class EasyQue {
         // for (int val : arr) {
         // System.out.println(val);
         // }
+
+        // 14.2 ==> Optimized
+        // int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
+        // int k = 3;
+        // int n = nums.length;
+        // k = k % n; // Handle cases where k >= n
+
+        // reverse(nums, 0, n - 1); // Step 1: Reverse the whole array
+        // reverse(nums, 0, k - 1); // Step 2: Reverse first k elements
+        // reverse(nums, k, n - 1); // Step 3: Reverse the rest
+
+        // 15. Check if Array Is Sorted and Rotated
+        // 15.1 Broute force
+        // boolean flag = false;
+        // int n = nums.length;
+
+        // if(n == 1) return true;
+
+        // // rotate n times
+        // for(int i=0; i<n; i++){
+
+        // //check sorted
+        // for(int j=0; j<n-1; j++){
+        // if(nums[j] > nums[j+1]){
+        // break;
+        // }
+        // if(j == n-2){
+        // flag = true;
+        // break;
+        // }
+        // }
+
+        // //rotate array
+        // int first = nums[0];
+        // for(int j=0; j<n-1; j++){
+        // nums[j] = nums[j+1];
+        // }
+        // nums[n-1] = first;
+        // }
+        // return flag;
+
+        // 15.2 Optimal
+        // int count = 0;
+        // int n = nums.length;
+
+        // for (int i = 0; i < n; i++) {
+        // if (nums[i] > nums[(i + 1) % n]) {
+        // count++;
+        // }
+        // }
+        // return count <= 1;
     }
+
+    // private static void reverse(int[] nums, int start, int end) {
+    // while (start < end) {
+    // int temp = nums[start];
+    // nums[start] = nums[end];
+    // nums[end] = temp;
+    // start++;
+    // end--;
+    // }
+    // }
 }

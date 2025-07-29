@@ -19,16 +19,18 @@ class MedieumQue {
         // System.out.println(revStr);
 
         // // 2. Reverse words of string
-        // String str = "Hello How are you";
-        // String[] strArray = str.split(" ");
-        // String revStr = "";
+        // String s = " Hello How are you ";
+        // String[] strArray = s.trim().split(" ");
+        // String resultReverse = "";
         // for (int i = strArray.length - 1; i >= 0; i--) {
-        // revStr += strArray[i];
+        // if (!strArray[i].equals("")) {
+        // resultReverse += strArray[i];
         // if (i > 0) {
-        // revStr += " ";
+        // resultReverse += " ";
         // }
         // }
-        // System.out.println(revStr);
+        // }
+        // System.out.println(resultReverse);
 
         // // 3. Reverse words and rverse character of word in string
         // String str = "Hello How are you";
@@ -61,28 +63,48 @@ class MedieumQue {
 
         // //5. Longest Palindromic Substring
         // String s = "cbbd";
-        // int n = s.length();
-        // int max = Integer.MIN_VALUE;
-        // int minIndex = 0;
-        // int maxIndex = 0;
+        // String result = "";
+        // for (int i = 0; i < s.length(); i++) {
+        //     for (int j = i + 1; j <= s.length(); j++) {
+        //         String subStr = s.substring(i, j);
 
-        // for (int i = 0; i < n; i++) {
-        // for (int j = i + 1; j < n; j++) {
-        // String subStr = s.substring(i, j);
+        //         // start check Palindromic
+        //         int start = 0;
+        //         int end = subStr.length() - 1;
+        //         boolean flag = true;
+        //         while (start <= end) {
+        //             if (subStr.charAt(start) != subStr.charAt(end)) {
+        //                 flag = false;
+        //                 break;
+        //             }
+        //             start++;
+        //             end--;
+        //         }
 
-        // boolean bool = isPallindromic(subStr);
-        // if (bool) {
-        // if (subStr.length() > max) {
-        // max = subStr.length();
-        // minIndex = i;
-        // maxIndex = j;
-        // }
-        // }
-        // }
-        // }
-        // System.out.println(s.substring(minIndex, maxIndex));
+        //         // end check Palindromic
 
-        // // 6.Atoi
+        //         if (flag) {
+        //             if (subStr.length() > result.length()) {
+        //                 result = subStr;
+        //             }
+        //         }
+        //     }
+        // }
+        // System.out.println(result);
+
+        // 6.Count Number of Substrings
+        // String str = "Hello";
+        // int cnt = 0;
+        // for (int i = 0; i < str.length(); i++) {
+        // for (int j = i + 1; j <= str.length(); j++) {
+        // String substr = str.substring(i, j);
+        // cnt++;
+        // System.out.print(substr + ",");
+        // }
+        // }
+        // System.out.println(cnt);
+
+        // // 7.Atoi
         // String str = " -42";
         // int len = str.length();
         // int i = 0;
@@ -114,7 +136,7 @@ class MedieumQue {
         // }
         // System.out.println(sign * result);
 
-        // // 7.Maximum Nesting Depth of Paranthesis
+        // // 8.Maximum Nesting Depth of Paranthesis
         // String str = "()(())((()()))";
         // int cnt = 0;
         // int nested = 0;
@@ -128,7 +150,7 @@ class MedieumQue {
         // }
         // System.out.println(nested);
 
-        // // 8.Sort Characters By Frequency
+        // // 9.Sort Characters By Frequency
         // String s = "Aabb";
         // String result = "";
         // Map<Character, Integer> freqMap = new HashMap<>();
@@ -148,7 +170,7 @@ class MedieumQue {
         // }
         // System.out.println(result);
 
-        // // 9.Roman Number to Integer
+        // // 10.Roman Number to Integer
         // String s = "LVIII";
         // int result = 0;
         // Map<Character, Integer> map = new HashMap<>();
@@ -172,7 +194,7 @@ class MedieumQue {
         // result += map.get(s.charAt(s.length() - 1));
         // System.out.println(result);
 
-        // // 10.Integer to Roman Number
+        // // 11.Integer to Roman Number
         // int Num = 2024;
         // Map<Integer, String> map = new LinkedHashMap<>();
         // map.put(1000, "M");
@@ -192,13 +214,13 @@ class MedieumQue {
         // StringBuilder sb = new StringBuilder();
 
         // for (Map.Entry<Integer, String> entry : map.entrySet()) {
-        //     while (Num > entry.getKey()) {
-        //         sb.append(entry.getValue());
-        //         Num -= entry.getKey();
-        //     }
+        // while (Num > entry.getKey()) {
+        // sb.append(entry.getValue());
+        // Num -= entry.getKey();
+        // }
         // }
         // System.out.println(sb);
-        
+
     }
 
     // Here write start calling functions
@@ -217,19 +239,5 @@ class MedieumQue {
     // }
 
     // return maxFreq - minFreg;
-    // }
-
-    // // 5.
-    // public static boolean isPallindromic(String subStr) {
-    // int left = 0;
-    // int right = subStr.length() - 1;
-    // while (left <= right) {
-    // if (subStr.charAt(left) != subStr.charAt(right)) {
-    // return false;
-    // }
-    // left++;
-    // right--;
-    // }
-    // return true;
     // }
 }
