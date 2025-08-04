@@ -3,6 +3,7 @@ package arrayQue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -247,19 +248,475 @@ public class HardQue {
         // int n = arr.length;
         // int longest = 0;
         // for (int i = 0; i < n; i++) {
-        //     int sum = 0;
-        //     for (int j = i; j < n; j++) {
-        //         sum += arr[j];
-        //         if (sum == 0) {
-        //             longest = Math.max(longest, j - i + 1);
-        //         }
-        //     }
+        // int sum = 0;
+        // for (int j = i; j < n; j++) {
+        // sum += arr[j];
+        // if (sum == 0) {
+        // longest = Math.max(longest, j - i + 1);
+        // }
+        // }
         // }
         // System.out.println(longest);
 
-        // 5.2 ==> Optimal Approach
-        
+        // // 5.2 ==> Optimal Approach ==> By prefix sum technique
+        // int[] arr = { 6, -2, 2, -8, 1, 7, 4, -10 };
+        // int n = arr.length;
+        // HashMap<Integer, Integer> map = new HashMap<>();
+        // int longest = 0;
+        // int sum = 0;
+        // for (int i = 0; i < n; i++) {
+        // sum += arr[i];
+        // if (sum == 0) {
+        // longest = i + 1;
+        // } else if (map.get(sum) != null) {
+        // longest = Math.max(longest, i - map.get(sum));
+        // } else {
+        // map.put(sum, i);
+        // }
+        // }
+        // System.out.println(longest);
+
+        // 6.Count the number of subarrays with given sum equal K
+        // // 6.1 ==> Better Approach
+        // int[] arr = { 4, 2, 2, 6, 4 };
+        // int n = arr.length;
+        // int k = 6;
+        // int cnt = 0;
+        // for (int i = 0; i < n; i++) {
+        // int sum = 0;
+        // for (int j = i; j < n; j++) {
+        // sum += arr[j];
+        // if (sum == k) {
+        // cnt++;
+        // }
+        // }
+        // }
+        // System.out.println(cnt);
+
+        // // 6.2 ==> Optimal Approach
+        // int[] arr = { 4, 2, 2, 6, 4 };
+        // int k = 6;
+        // int cnt = 0;
+        // int sum = 0;
+
+        // HashMap<Integer, Integer> map = new HashMap<>();
+        // map.put(0, 1); // sum=0 ka ek occurrence
+
+        // for (int i = 0; i < arr.length; i++) {
+        // sum += arr[i];
+        // int x = sum-k;
+        // if (map.containsKey(x)) {
+        // cnt += map.get(x);
+        // }
+
+        // map.put(sum, map.getOrDefault(sum, 0) + 1);
+        // }
+
+        // System.out.println(cnt);
+
+        // 7. Count the number of subarrays with given xor K
+        // // 7.1 ==> Better Force Approach
+        // int[] arr = { 4, 2, 2, 6, 4 };
+        // int k = 6;
+        // int n = arr.length;
+        // int cnt = 0;
+        // for (int i = 0; i < n; i++) {
+        // int xor = 0;
+        // for (int j = i; j < n; j++) {
+        // xor = xor ^ arr[j];
+        // if (xor == k) {
+        // cnt++;
+        // }
+        // }
+        // }
+        // System.out.println(cnt);
+
+        // // 7.2 ==> Optimal Approach
+        // int[] arr = { 4, 2, 2, 6, 4 };
+        // int k = 6;
+        // int n = arr.length;
+        // int cnt = 0;
+        // int xor = 0;
+        // HashMap<Integer, Integer> map = new HashMap<>();
+        // map.put(xor, 1);
+        // for (int i = 0; i < n; i++) {
+        // xor = xor ^ arr[i];
+        // int x = xor ^ k;
+        // if (map.containsKey(x)) {
+        // cnt += map.get(x);
+        // }
+        // map.put(xor, map.getOrDefault(xor, 0) + 1);
+        // }
+        // System.out.println(cnt);
+
+        // 8.Merge Overlapping Subintervals
+        // // 8.1=> Broute Force Approach
+        // int[][] intervals = { { 1, 3 }, { 2, 6 }, { 8, 10 }, { 15, 18 } };
+        // int n = intervals.length;
+        // // Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        // Arrays.sort(intervals, new Comparator<int[]>() {
+        // public int compare(int[] a, int[] b) {
+        // return a[0] - b[0];
+        // }
+        // });
+
+        // List<List<Integer>> list = new ArrayList<>();
+        // for (int i = 0; i < n; i++) {
+        // // select an interval
+        // int start = intervals[i][0];
+        // int end = intervals[i][1];
+        // // skip merged intervals
+        // if (!list.isEmpty() && end <= list.get(list.size() - 1).get(1)) {
+        // continue;
+        // }
+        // // check the rest of the intervals
+        // for (int j = i + 1; j < n; j++) {
+        // if (intervals[j][0] <= end) {
+        // end = Math.max(end, intervals[j][1]);
+        // } else {
+        // break;
+        // }
+        // }
+        // list.add(Arrays.asList(start, end));
+        // }
+        // // Convert List<List<Integer>> to int[][]
+        // int[][] result = new int[list.size()][2];
+        // for (int i = 0; i < list.size(); i++) {
+        // result[i][0] = list.get(i).get(0);
+        // result[i][1] = list.get(i).get(1);
+        // }
+
+        // // return result;
+
+        // // 8.2 ==> Optimal Approach: ==> Isko arraylist se bhi kr skte h
+        // int[][] intervals = { { 1, 3 }, { 2, 6 }, { 8, 10 }, { 15, 18 } };
+        // int n = intervals.length;
+        // // if (intervals.length <= 1) return intervals;
+
+        // // Step 1: Sort by start times
+        // Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // int[][] result = new int[n][2];
+        // int index = 0;
+
+        // result[0][0] = intervals[0][0];
+        // result[0][1] = intervals[0][1];
+
+        // for (int i = 1; i < n; i++) {
+        // int[] current = intervals[i];
+        // int[] last = result[index];
+
+        // if (last[1] >= current[0]) {
+        // last[1] = Math.max(last[1], current[1]);
+        // } else {
+        // index++;
+        // result[index][0] = intervals[i][0];
+        // result[index][1] = intervals[i][1];
+        // }
+        // }
+
+        // for (int[] interval : result) {
+        // System.out.println(Arrays.toString(interval));
+        // }
+
+        // 9.Merge two sorted arrays without extra space
+        // // 9.1 ==> Broute Force Approach (Isme extra space liya h)
+        // int[] arr1 = { 1, 4, 8, 10 };
+        // int[] arr2 = { 2, 3, 9 };
+        // int n = 4;
+        // int m = 3;
+
+        // int[] arr3 = new int[n + m];
+        // int left = 0;
+        // int right = 0;
+        // int index = 0;
+
+        // while (left < n && right < m) {
+        // if (arr1[left] <= arr2[right]) {
+        // arr3[index++] = arr1[left++];
+        // } else {
+        // arr3[index++] = arr2[right++];
+        // }
+        // }
+        // while (left < n) {
+        // arr3[index++] = arr1[left++];
+        // }
+        // while (right < m) {
+        // arr3[index++] = arr2[right++];
+        // }
+
+        // for (int i = 0; i < n + m; i++) {
+        // if (i < n) {
+        // arr1[i] = arr3[i];
+        // } else {
+        // arr2[i - n] = arr3[i];
+        // }
+        // }
+
+        // for (int i = 0; i < n; i++) {
+        // System.out.print(arr1[i] + " ");
+        // }
+
+        // System.out.println();
+
+        // for (int i = 0; i < m; i++) {
+        // System.out.print(arr2[i] + " ");
+        // }
+
+        // // 9.2 ==> Optimal Approach 1
+        // int[] nums1 = { 1, 4, 8, 10 };
+        // int[] nums2 = { 2, 3, 9 };
+        // int m = 4;
+        // int n = 3;
+        // int left = m - 1;
+        // int right = 0;
+        // while (left > 0 && right < n) {
+        // if (nums1[left] > nums2[right]) {
+        // int temp = nums1[left];
+        // nums1[left] = nums2[right];
+        // nums2[right] = temp;
+        // left--;
+        // right++;
+        // } else {
+        // break;
+        // }
+        // }
+
+        // Arrays.sort(nums1);
+        // Arrays.sort(nums2);
+
+        // for (int i = 0; i < m; i++) {
+        // System.out.print(nums1[i] + " ");
+        // }
+
+        // System.out.println();
+
+        // for (int i = 0; i < n; i++) {
+        // System.out.print(nums2[i] + " ");
+        // }
+
+        // // 9.3 => Optimal Approach 2 (Using gap method):
+        // int[] nums1 = { 1, 4, 8, 10 };
+        // int[] nums2 = { 2, 3, 9 };
+        // int m = 4;
+        // int n = 3;
+        // int len = m + n;
+
+        // int gap = (len / 2) + (len % 2);
+        // while (gap > 0) {
+        // int left = 0;
+        // int right = left + gap;
+        // while (right < len) {
+        // if (left < m && right >= m) {
+        // swap(nums1, nums2, left, right - m);
+        // } else if (left >= m) {
+        // swap(nums2, nums2, left - m, right - m);
+        // } else {
+        // swap(nums1, nums1, left, right);
+        // }
+        // left++;
+        // right++;
+        // }
+        // if (gap == 1) {
+        // break;
+        // }
+        // gap = (gap / 2) + (gap % 2);
+
+        // }
+
+        // for (int i = 0; i < m; i++) {
+        // System.out.print(nums1[i] + " ");
+        // }
+
+        // System.out.println();
+
+        // for (int i = 0; i < n; i++) {
+        // System.out.print(nums2[i] + " ");
+        // }
+
+        // // 10. Find the repeating and missing number
+        // // 10.1 Broute Force Approach
+        // int[] arr = { 3, 1, 2, 5, 3 };
+        // int n = arr.length;
+        // List<Integer> result = new ArrayList<>();
+        // for (int i = 1; i <= n; i++) {
+        // int cnt = 0;
+        // for (int j = 0; j < n; j++) {
+        // if (i == arr[j]) {
+        // cnt++;
+        // }
+        // }
+        // if (cnt == 0 || cnt > 1) {
+        // result.add(i);
+        // }
+        // }
+
+        // for (int val : result) {
+        // System.out.println(val);
+        // }
+
+        // // 10.2 ==> Better Approach (Using Hashing): hash array
+        // int[] arr = { 3, 1, 2, 5, 4, 6, 7, 5 };
+        // int n = arr.length;
+        // List<Integer> result = new ArrayList<>();
+        // int[] hash = new int[n + 1];
+        // for (int i = 0; i < n; i++) {
+        // hash[arr[i]] = hash[arr[i]] + 1;
+        // }
+
+        // for (int i = 1; i <= n; i++) {
+        // if (hash[i] == 0 || hash[i] == 2) {
+        // result.add(i);
+        // }
+        // }
+
+        // for (int val : result) {
+        // System.out.println(val);
+        // }
+
+        // // 10.3 ==> Optimal Approach 1 (Using Maths):
+        // int[] arr = { 3, 1, 2, 5, 4, 6, 7, 5 };
+        // int n = arr.length;
+        // long sN = (n * (n + 1)) / 2;
+        // long s2N = (n * (n + 1) * (2 * n + 1)) / 6;
+        // long s = 0;
+        // long s2 = 0;
+        // for (int i = 0; i < n; i++) {
+        // s += (long) arr[i];
+        // s2 += (long) arr[i] * (long) arr[i];
+        // }
+
+        // // x-y = s-sN
+        // long val1 = s - sN;
+        // // x^2-y^2=s2-s2N
+        // long val2 = s2 - s2N;
+        // // x+y=(x^2-y^2)/x-y
+        // val2 = val2 / val1;
+
+        // long x = (val1 + val2) / 2;
+        // long y = x - val1;
+
+        // int[] result = { (int) x, (int) y };
+        // for (int val : result) {
+        // System.out.println(val);
+        // }
+
+        // 10.4 ==> Optimal Approach 2 (Using XOR):
+
+        // 11. ==> Count inversions in an array
+        // // 11.1 ==> Broute Force Approach
+        // int[] arr = { 5, 3, 2, 1, 4 };
+        // int n = arr.length;
+        // int cnt = 0;
+        // for (int i = 0; i < n; i++) {
+        // for (int j = i + 1; j < n; j++) {
+        // if (arr[i] > arr[j]) {
+        // cnt++;
+        // }
+        // }
+        // }
+        // System.out.println(cnt);
+
+        // // 11.2 ==> Optimal Approach
+        // int[] arr = { 5, 3, 2, 1, 4 };
+        // int n = arr.length;
+        // int cnt = numberOfInversions(arr, n);
+        // System.out.println(cnt);
+
+        // 12. ==> Count Reverse Pairs
+        // // 12.1 ==> Broute Force Approach
+        // int[] arr = { 3, 2, 1, 4 };
+        // int n = arr.length;
+        // int cnt = 0;
+        // for (int i = 0; i < n; i++) {
+        // for (int j = i + 1; j < n; j++) {
+        // if (arr[i] > (2 * arr[j])) {
+        // cnt++;
+        // }
+        // }
+        // }
+        // System.out.println(cnt);
+
+        // 12.2 Optimal Approach
+        int[] arr = { 1, 3, 2, 3, 1 };
+        int n = arr.length;
+        int cnt = reverseOfPairs(arr, n);
+        System.out.println(cnt);
     }
+
+    // private static int numberOfInversions(int[] arr, int n) {
+    // int cnt = mergeSort(arr, 0, n - 1);
+    // return cnt;
+    // }
+
+    private static int reverseOfPairs(int[] arr, int n) {
+        int cnt = mergeSort(arr, 0, n - 1);
+        return cnt;
+    }
+
+    private static int mergeSort(int[] arr, int low, int high) {
+        int cnt = 0;
+        if (low >= high)
+            return cnt;
+        int mid = (low + high) / 2;
+        cnt += mergeSort(arr, low, mid);
+        cnt += mergeSort(arr, mid + 1, high);
+        cnt += merge(arr, low, mid, high);
+        return cnt;
+    }
+
+    private static int merge(int[] arr, int low, int mid, int high) {
+        int cnt = 0;
+        int left = low;
+        int right = mid + 1;
+        ArrayList<Integer> list = new ArrayList<>();
+
+        while (left <= mid && right <= high) {
+            // // for numberOfInversions
+            // if (arr[left] < arr[right]) {
+            // list.add(arr[left]);
+            // left++;
+            // } else {
+            // list.add(arr[right]);
+            // cnt += mid - left + 1;
+            // right++;
+            // }
+
+            // for reverseOfPairs
+            if (arr[left] < 2 * arr[right]) {
+                list.add(arr[left]);
+                left++;
+            } else {
+                list.add(arr[right]);
+                cnt += mid - left + 1;
+                right++;
+            }
+        }
+
+        while (left <= mid) {
+            list.add(arr[left]);
+            left++;
+        }
+        while (right <= high) {
+            list.add(arr[right]);
+            right++;
+        }
+
+        // transfering all elements from temporary to arr //
+        for (int i = low; i <= high; i++) {
+            arr[i] = list.get(i - low);
+        }
+
+        return cnt;
+    }
+
+    // private static void swap(int[] nums1, int[] nums2, int left, int right) {
+    // if (nums1[left] > nums2[right]) {
+    // int temp = nums1[left];
+    // nums1[left] = nums2[right];
+    // nums2[right] = temp;
+    // }
+    // }
 
     // private static int fun_nCr(int n, int r) { // nCr = n!/r!*(n-r)!
     // int result = 1;
