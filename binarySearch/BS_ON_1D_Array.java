@@ -135,7 +135,9 @@ public class BS_ON_1D_Array {
         // System.out.println(ceil);
 
         // // 6.Find the first or last occurrence of a given number in a sorted array
-        // // 6.1 ==> my approach
+        // 6.1 ==> First Approach (agar ap dono ko(first and second) ek sath nikalna
+        // chahte h to two function bnakar alag alag logic likh lo dene dono ek sath
+        // return kr skte h)
         // int[] nums = { 3, 4, 13, 13, 13, 20, 40 };
         // int target = 13;
         // int index = -1;
@@ -158,55 +160,59 @@ public class BS_ON_1D_Array {
         // }
         // System.out.println(index);
 
-        // // 6.2 ==> using lowebound or upperbound
+        // // 6.2 ==> second approach (using lowebound or upperbound)
         // int[] nums = { 3, 4, 13, 13, 13, 20, 40 };
         // int target = 13;
         // int first = lb(nums, target);
         // int second = ub(nums, target);
         // if (nums[first] != target || first == nums.length) {
-        //     first = -1;
-        //     second = -1;
+        // first = -1;
+        // second = -1;
         // } else {
-        //     second = second - 1;
+        // second = second - 1;
         // }
         // System.out.println(first);
         // System.out.println(second);
 
         // 7.Count occurrences of a number in a sorted array with duplicates
+        // answer==> find first occurrences and second occurrences than (second-first+1)
+        // uper bala hi question h bs sime count krna tha
+
+        // 8.Search in Rotated Sorted Array I
 
     }
 
-    private static int lb(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length - 1;
-        int index = nums.length;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            if (nums[mid] >= target) {
-                index = mid;
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-        }
-        return index;
-    }
+    // private static int lb(int[] nums, int target) {
+    // int low = 0;
+    // int high = nums.length - 1;
+    // int index = nums.length;
+    // while (low <= high) {
+    // int mid = (low + high) / 2;
+    // if (nums[mid] >= target) {
+    // index = mid;
+    // high = mid - 1;
+    // } else {
+    // low = mid + 1;
+    // }
+    // }
+    // return index;
+    // }
 
-    private static int ub(int[] nums, int target) {
-        int index = nums.length;
-        int low = 0;
-        int high = nums.length - 1;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            if (nums[mid] > target) {
-                index = mid;
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-        }
-        return index;
-    }
+    // private static int ub(int[] nums, int target) {
+    // int index = nums.length;
+    // int low = 0;
+    // int high = nums.length - 1;
+    // while (low <= high) {
+    // int mid = (low + high) / 2;
+    // if (nums[mid] > target) {
+    // index = mid;
+    // high = mid - 1;
+    // } else {
+    // low = mid + 1;
+    // }
+    // }
+    // return index;
+    // }
 
     // public static int binarySearch(int[] nums, int low, int high, int target) {
     // if (low > high)
